@@ -1,3 +1,4 @@
+import { n } from "vitest/dist/reporters-MmQN-57K";
 import { TreeNodeNum } from "../common/tree";
 
 /** numGreater(lowerBound): starting from the invoking node and moving
@@ -5,7 +6,21 @@ import { TreeNodeNum } from "../common/tree";
  * is greater than lowerBound. */
 
 function numGreater(node: TreeNodeNum, lowerBound: number): number {
-  return 42;
+  const stack: TreeNodeNum[] = [node];
+
+  let numGreaterCount: number = 0;
+
+  while(stack.length !== 0) {
+    const currentNode: TreeNodeNum = stack.pop()!;
+    if(currentNode.val > lowerBound) {
+      numGreaterCount++;
+    }
+
+    for(const child of currentNode.children) {
+      stack.push(child);
+    }
+  }
+  return numGreaterCount;
 }
 
 export { numGreater };
