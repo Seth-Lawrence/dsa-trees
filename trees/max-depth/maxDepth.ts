@@ -8,20 +8,20 @@ import { TreeNodeNum } from "../common/tree";
 function maxDepth(node: TreeNodeNum | null): number {
   if (node === null) return 0;
   // debugger;
-  let depth: number = 1;
+  let branchMaxDepth: number = 1;
+  let currentDepth: number = 1;
   // let max: number = 1;
   debugger
   if (node.children.length > 0) {
     for (let child of node.children) {
-      maxDepth(child);
-      depth++;
-      if (child.children.length > 0) depth++;
+      const branchDepth = currentDepth + maxDepth(child);
       // max = depth > max ? depth : max;
+      branchMaxDepth = branchDepth > branchMaxDepth ? branchDepth : branchMaxDepth;
     }
   }
 
   // return max;
-  return depth
+  return branchMaxDepth;
 
 
   // const stack:TreeNodeNum[] = [node];
