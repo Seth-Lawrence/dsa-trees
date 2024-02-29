@@ -23,7 +23,18 @@ function preOrder(node: BNodeNum | null): number[] {
  * Returns an array of visited nodes. */
 
 function postOrder(node: BNodeNum | null): number[] {
-  return [42];
+  if(node === null) return [];
+
+  let branchNodes: number[] = [];
+
+  if(node.lnode) {
+    branchNodes.push(...postOrder(node.lnode));
+  }
+  if (node.rnode) {
+    branchNodes.push(...postOrder(node.rnode));
+  }
+
+  return [...branchNodes, node.val]
 }
 
 export { preOrder, postOrder };
