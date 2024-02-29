@@ -9,18 +9,19 @@ function maxDepth(node: TreeNodeNum | null): number {
   if (node === null) return 0;
   // debugger;
   let depth: number = 1;
-  let max: number = 1;
-
+  // let max: number = 1;
+  debugger
   if (node.children.length > 0) {
     for (let child of node.children) {
       maxDepth(child);
-      if (child.children) depth++;
-      max = depth > max ? depth : max;
+      depth++;
+      if (child.children.length > 0) depth++;
+      // max = depth > max ? depth : max;
     }
   }
 
-  return max;
-
+  // return max;
+  return depth
 
 
   // const stack:TreeNodeNum[] = [node];
