@@ -7,25 +7,24 @@ import { BNodeNum } from "../common/bintree";
 
 function minDepth(node: BNodeNum): number {
   let shortestPath: number = Infinity;
-  let leftPath: number = 1;
-  let rightPath: number = 1;
-
+  let leftPath: number | null = null;
+  let rightPath: number | null = null;
+  const currentDepth = 1;
   debugger;
 
   if (node.lnode) {
-    leftPath = leftPath + minDepth(node.lnode)
+    leftPath = currentDepth + minDepth(node.lnode)
     shortestPath = leftPath < shortestPath ? leftPath : shortestPath;
   }
 
   if (node.rnode) {
-    rightPath = rightPath + minDepth(node.rnode);
+    rightPath = currentDepth + minDepth(node.rnode);
     shortestPath = rightPath < shortestPath ? rightPath : shortestPath;
   }
 
-  shortestPath = leftPath < shortestPath ? leftPath : shortestPath;
-  shortestPath = rightPath < shortestPath ? rightPath : shortestPath;
+  if(leftPath !== null || rightPath !== null) return shortestPath;
 
-  return shortestPath;
+  return currentDepth;
 }
 
 export { minDepth };
