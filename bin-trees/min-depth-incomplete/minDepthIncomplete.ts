@@ -21,12 +21,7 @@ function minDepthToIncompleteNode(node: BNodeNum): number {
   minDepth = currentDepth < minDepth ? currentDepth : minDepth;
 
   return minDepth;
-  //Create queue
-  //Create currentDepthQueueLine = 1
-  //Create nextDepthQueueLine =
-  //Create depth
-  //Create while loop, run as long as queue not empty
-    //Decrement currentqueueLine
+
 }
 
 export { minDepthToIncompleteNode };
