@@ -4,7 +4,17 @@ import { TreeNodeNum } from "../common/tree";
  * Returns an array of visited nodes. */
 
 function preOrder(node: TreeNodeNum | null): number[] {
-  return [42];
+  // Use recursion to traverse tree and build an array made up of node values
+  // Build array going UP
+  if(node === null) return [];
+  debugger;
+  const branchVal: number[] = [];
+  if(node.children.length !== 0) {
+    for(const child of node.children) {
+      branchVal.push(...preOrder(child));
+    }
+  }
+  return [node!.val, ...branchVal]
 }
 
 
