@@ -1,6 +1,6 @@
 import { expect, it } from "vitest";
 import { largeTree, longTree, smallTree } from "../common/bintree.test";
-import { minDepthToIncomplete } from "./minDepthIncomplete";
+import { minDepthToIncompleteNode as minDepthToIncomplete } from "./minDepthIncomplete";
 
 it("handles simple trees", function () {
   expect(minDepthToIncomplete(smallTree.root!)).toBe(2);
