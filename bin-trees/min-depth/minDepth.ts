@@ -11,7 +11,7 @@ function minDepth(node: BNodeNum): number {
   let rightPath: number | null = null;
   const currentDepth = 1;
   debugger;
-
+  // TODO: What is the base case?
   if (node.lnode) {
     leftPath = currentDepth + minDepth(node.lnode)
     shortestPath = leftPath < shortestPath ? leftPath : shortestPath;

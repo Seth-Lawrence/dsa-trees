@@ -8,13 +8,13 @@ function preOrder(node: TreeNodeNum | null): number[] {
   // Build array going UP
   if(node === null) return [];
   // debugger;
-  const branchVal: number[] = [];
-  if(node.children.length !== 0) {
-    for(const child of node.children) {
-      branchVal.push(...preOrder(child));
-    }
+  const branchVals: number[] = [];
+  // if(node.children.length !== 0) {
+  for(const child of node.children) {
+    branchVals.push(...preOrder(child));
   }
-  return [node!.val, ...branchVal]
+  // }
+  return [node.val, ...branchVals]
 }
 
 
@@ -26,13 +26,13 @@ function postOrder(node: TreeNodeNum | null): number[] {
 
   if(node === null) return [];
   // debugger;
-  const branchVal: number[] = [];
-  if(node.children.length !== 0) {
-    for(const child of node.children) {
-      branchVal.push(...postOrder(child));
-    }
+  const branchVals: number[] = [];
+  // if(node.children.length !== 0) {
+  for(const child of node.children) {
+    branchVals.push(...postOrder(child));
   }
-  return [...branchVal, node!.val]
+  // }
+  return [...branchVals, node.val]
 }
 
 export { preOrder, postOrder };

@@ -6,16 +6,16 @@ import { BNodeNum } from "../common/bintree";
 function preOrder(node: BNodeNum | null): number[] {
   if(node === null) return [];
 
-  let branchNodes: number[] = [];
+  let branchValues: number[] = [];
 
   if(node.lnode) {
-    branchNodes.push(...preOrder(node.lnode));
+    branchValues.push(...preOrder(node.lnode));
   }
   if (node.rnode) {
-    branchNodes.push(...preOrder(node.rnode));
+    branchValues.push(...preOrder(node.rnode));
   }
 
-  return [node.val, ...branchNodes]
+  return [node.val, ...branchValues]
 }
 
 
@@ -25,16 +25,16 @@ function preOrder(node: BNodeNum | null): number[] {
 function postOrder(node: BNodeNum | null): number[] {
   if(node === null) return [];
 
-  let branchNodes: number[] = [];
+  let branchValues: number[] = [];
 
   if(node.lnode) {
-    branchNodes.push(...postOrder(node.lnode));
+    branchValues.push(...postOrder(node.lnode));
   }
   if (node.rnode) {
-    branchNodes.push(...postOrder(node.rnode));
+    branchValues.push(...postOrder(node.rnode));
   }
 
-  return [...branchNodes, node.val]
+  return [...branchValues, node.val]
 }
 
 export { preOrder, postOrder };
